@@ -8,7 +8,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "protactor config.js"
+    "test": "protractor config.js"
   },
   "author": "",
   "license": "ISC"

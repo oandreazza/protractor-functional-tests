@@ -10,16 +10,19 @@ var SignInPage = function(){
     browser.get('http://automationpractice.com/index.php?controller=authentication&back=my-account');
   }
 
+  this.getEmailInput = function(){
+    return emailInput;
+  }
+
+  this.getPasswordInput = function(){
+    return passwordInput;
+  }
+
   this.login = function (email, password) {
     emailInput.sendKeys(email)
     passwordInput.sendKeys(password);
     sigInButton.click();
-    // this.emailInput.sendKeys(email);
-    // this.passwordInput.sendKeys(password);
-    // this.sigInButton.click();
   }
-
-
 
   this.failMessage = function(){
     return $('.alert-danger > ol > li').getText();

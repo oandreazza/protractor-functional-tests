@@ -1,31 +1,37 @@
 'use strict';
 var SignInPage = require('./pages/SignInPage.js')
- var fs = require('fs');
+var fs = require('fs');
 
-describe('angularjs homepage todo list', function() {
-  it('Should show authentication failed when enter invalid user and password', function() {
+describe('SignInPage suite scenarios', function() {
+  var page;
 
-    var page = new SignInPage();
+  beforeEach(function(){
+    page = new SignInPage();
     page.get();
+
+  })
+
+  it('Should show authentication failed when enter invalid user and password', function() {
     page.login('mauricio.webdev@gmail.com','123123');
-    browser.takeScreenshot().then(function (png) {
-        writeScreenShot(png, 'exception.png');
-    });;
     expect(page.failMessage()).toEqual('Authentication failed.');
-    // browser.get('https://angularjs.org');
-    //
-    // element(by.model('todoList.todoText')).sendKeys('write first protractor test');
-    // element(by.css('[value="add"]')).click();
-    //
-    // var todoList = element.all(by.repeater('todo in todoList.todos'));
-    // expect(todoList.count()).toEqual(3);
-    // expect(todoList.get(2).getText()).toEqual('write first protractor test');
-    //
-    // // You wrote your first test, cross it off the list
-    // todoList.get(2).element(by.css('input')).click();
-    // var completedAmount = element.all(by.css('.done-true'));
-    // expect(completedAmount.count()).toEqual(2);
   });
+
+  it('Should inform that password is mandatory', function(){
+    page.login('mauricio.webdev@gmail.com','');
+    expect(page.failMessage()).toEqual('Password is required.');
+  })
+
+  it('Should inform that email is mandatory', function() {
+    page.login('','123123');
+    expect(page.failMessage()).toEqual('An email address required.');
+  })
+
+  it('Should login with email and password', function(){
+    expect(page.getEmailInput().isPresent()).toBe(true);
+    expect(page.getPasswordInput().isPresent()).toBe(true);
+  })
+
+
 });
 
 
