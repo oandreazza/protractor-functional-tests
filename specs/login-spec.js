@@ -30,5 +30,10 @@ describe('SignInPage suite scenarios', function() {
     expect(page.getPasswordInput().isPresent()).toBe(true);
   })
 
+  it('Should login when enter valid user', function(){
+    var authenticatedPage = page.validLogin();
+    expect(authenticatedPage.isAuthenticated()).toBe(true);
+  })
+
 
 });

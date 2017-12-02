@@ -1,4 +1,5 @@
 'use strict';
+var AuthenticatedPage = require('./AuthenticatedPage.js')
 
 var SignInPage = function(){
   var sigInButton = $('#SubmitLogin');
@@ -22,6 +23,14 @@ var SignInPage = function(){
     emailInput.sendKeys(email)
     passwordInput.sendKeys(password);
     sigInButton.click();
+  }
+
+  this.validLogin = function() {
+    emailInput.sendKeys('mauricio.webdev@gmail.com')
+    passwordInput.sendKeys('testeteste');
+    sigInButton.click();
+
+    return new AuthenticatedPage();
   }
 
   this.failMessage = function(){
