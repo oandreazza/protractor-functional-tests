@@ -1,6 +1,5 @@
 'use strict';
 var SignInPage = require('./pages/SignInPage.js')
-var fs = require('fs');
 
 describe('SignInPage suite scenarios', function() {
   var page;
@@ -33,10 +32,3 @@ describe('SignInPage suite scenarios', function() {
 
 
 });
-
-
-function writeScreenShot(data, filename) {
-    var stream = fs.createWriteStream(filename);
-    stream.write(new Buffer(data, 'base64'));
-    stream.end();
-}
