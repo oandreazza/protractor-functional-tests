@@ -1,5 +1,5 @@
 'use strict';
-var SignInPage = require('./pages/SignInPage.js')
+var SignInPage = require('../pages/SignInPage.js')
 
 describe('SignInPage suite scenarios', function() {
   var page;
@@ -17,7 +17,7 @@ describe('SignInPage suite scenarios', function() {
 
   it('Should inform that password is mandatory', function(){
     page.login('mauricio.webdev@gmail.com','');
-    expect(page.failMessage()).toEqual('Password is required..');
+    expect(page.failMessage()).toEqual('Password is required.');
   })
 
   it('Should inform that email is mandatory', function() {

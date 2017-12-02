@@ -1,9 +1,9 @@
 'use strict';
 
 var SignInPage = function(){
-  var sigInButton = element(by.id('SubmitLogin'));
-  var emailInput = element(by.id('email'));
-  var passwordInput = element(by.id('passwd'));
+  var sigInButton = $('#SubmitLogin');
+  var emailInput = $('#email');
+  var passwordInput = $('#passwd');
 
   this.get = function(){
     browser.waitForAngularEnabled(false);
