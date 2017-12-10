@@ -4,6 +4,7 @@
   "description": "",
   "main": "config.js",
   "dependencies": {
+    "jasmine-reporters": "^2.2.1",
     "protractor": "^5.2.0"
   },
   "scripts": {

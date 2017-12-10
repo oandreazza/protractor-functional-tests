@@ -7,6 +7,7 @@ machine:
 dependencies:
   override:
     - npm install -g protractor
+    - npm install
     - webdriver-manager update
     - webdriver-manager start:
         background: true
