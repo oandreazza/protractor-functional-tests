@@ -22,7 +22,7 @@ describe('SignInPage suite scenarios', function() {
 
   it('Should inform that email is mandatory', function() {
     page.login('','123123');
-    expect(page.failMessage()).toEqual('An email address required..');
+    expect(page.failMessage()).toEqual('An email address required.');
   })
 
   it('Should login with email and password', function(){
