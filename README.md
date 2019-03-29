@@ -1,1 +1,1 @@
-[![CircleCI](https://circleci.com/gh/oandreazza/protractor-functional-tests/tree/master.svg?style=svg)](https://circleci.com/gh/oandreazza/protractor-functional-tests/tree/master)
+[![Build Status](https://travis-ci.org/oandreazza/protractor-functional-tests.svg?branch=master)](https://travis-ci.org/oandreazza/protractor-functional-tests)
