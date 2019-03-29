@@ -16,5 +16,5 @@ install:
   - npm install
 script:
   - webdriver-manager update
-  - webdriver-manager start &
+  - travis_wait webdriver-manager start
   - npm test
