@@ -52,7 +52,7 @@ jobs:
         # Any branch if there are none on the default branch - this should be unnecessary if you have your default branch configured correctly
         - v1-dep-
     # This is based on your 1.0 configuration file or project settings
-    - run: npm install -g protractor
+    - run: sudo npm install -g protractor
     - run: npm install
     - run: webdriver-manager update
     - run:
