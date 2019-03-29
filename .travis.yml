@@ -8,7 +8,6 @@ addons:
       - google-chrome-stable
 language: node_js
 node_js:
-  - 6
   - 7
 before_script:
   - export DISPLAY=:99.0
@@ -16,4 +15,6 @@ before_script:
 install:
   - npm install
 script:
+  - webdriver-manager update
+  - webdriver-manager start &
   - npm test
