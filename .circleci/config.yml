@@ -28,7 +28,7 @@ jobs:
     # To see the list of pre-built images that CircleCI provides for most common languages see
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
-    - image: circleci/build-image:ubuntu-14.04-XXL-upstart-1189-5614f37
+    - image: circleci/build-image:ubuntu-14.04
       command: /sbin/init
     steps:
     # Machine Setup
@@ -43,6 +43,12 @@ jobs:
     - run:
         working_directory: ~/oandreazza/protractor-functional-tests
         command: nvm install 6.9.1 && nvm alias default 6.9.1
+
+    - run: sudo apt-get update
+    - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    - run: sudo dpkg -i google-chrome.deb
+    - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
+    - run: rm google-chrome.deb
     # Dependencies
     #   This would typically go in either a build or a build-and-test job when using workflows
     # Restore the dependency cache
@@ -54,11 +60,6 @@ jobs:
     - run:
         command: webdriver-manager start
         background: true
-    - run: sudo apt-get update
-    - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - run: sudo dpkg -i google-chrome.deb
-    - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-    - run: rm google-chrome.deb
     # Save dependency cache
     - save_cache:
         key: v1-dep-{{ .Branch }}-{{ epoch }}
