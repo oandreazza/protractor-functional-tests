@@ -28,7 +28,7 @@ jobs:
     # To see the list of pre-built images that CircleCI provides for most common languages see
     # https://circleci.com/docs/2.0/circleci-images/
     docker:
-    - image: circleci/node:9
+    - image: circleci/node:9-browsers
       command: /sbin/init
     steps:
     # Machine Setup
@@ -58,10 +58,6 @@ jobs:
     - run:
         command: webdriver-manager start
         background: true
-    - run: curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    - run: sudo dpkg -i google-chrome.deb
-    - run: sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-    - run: rm google-chrome.deb
     # Save dependency cache
     - save_cache:
         key: v1-dep-{{ .Branch }}-{{ epoch }}
